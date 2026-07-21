@@ -1,0 +1,60 @@
+Title = "DigiCert TLM Agent"
+
+[CertificateTemplate]
+  CN = ""
+  L = "Mountain View"
+  ST = "California"
+  OU = "DigiCert Sensor Private CA"
+  O = "DigiCert Inc."
+  C = "US"
+
+[HeartBeat]
+  Interval = 120
+  URL = "https://demo.one.au.digicert.com/mpki/ts/daas/healthCheck/agentHealthcheckService"
+
+[UserAuthn]
+  URL = "https://demo.one.au.digicert.com/mpki/ts/agent/v1/authentication"
+
+[LicenseKey]
+  URL = "https://demo.one.au.digicert.com/mpki/ts/agent/v1/getLicenseKey"
+
+[ActivateGateway]
+  URL = "https://demo.one.au.digicert.com/mpki/ts/daas/activate/activateGateway?wsdl"
+
+[TicketingService]
+  URL = "https://clientauth.demo.one.au.digicert.com/mpki/ts/daas/controldata/controldata?wsdl"
+
+[HTTPRequest]
+  UserAgent = ""
+  Trace = false
+
+[TLS]
+
+  # All files will be inside ../certs folder
+  KeyFile = "private_key.pem"
+  ClientAuthFile = "client_auth.pem"
+
+[Log]
+
+  # All log files will be inside ../log/ folder
+  File = "agent.log"
+  # Set of valid values {DEBUG, INFO, WARN, ERROR}
+  Level = "DEBUG"
+
+[AgentScan]
+  #Maximum size of a file on filesystem (in MB)
+  MaxFileSize = 100
+  #Maximum size of a file in archive (in MB)
+  MaxFileSizeInArchive = 100
+  #Maximum size of a total unzipped files an agent will require for archive scan (in GB)
+  MaxUnzipFileSize = 1
+
+[PluginManager]
+  StompPort = 61613
+  ControlPort = 58080
+
+[Proxy]
+  # sample value to be proxy url with http protocol. eg - http://ip:port or http://username:password@ip:port, this value will be cleared on next stop or restart of agent
+  ProxyUrl = ""
+  # To clear proxy and move to no proxy mode, set this flag as true and keep proxyUrl value empty
+  RemoveProxy = false

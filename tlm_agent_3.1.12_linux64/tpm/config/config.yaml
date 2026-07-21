@@ -1,0 +1,24 @@
+listener:
+  stomp:
+    hostport: 127.0.0.1:61613
+    username: adminuser
+    password: password
+    queue:
+      read: tlm-plugin-manager  
+      write: plugin-manager-upload
+logger:
+  level: INFO
+  maxsizemb: 10
+  maxagedays: 30
+  maxbackupcount: 10
+server:
+  port: 58080
+wrapper:
+  context:
+    clean: true
+process:
+  timeout: 15m
+cleanup:
+  enabled: true
+  interval: 15m
+  min_age: 60m
